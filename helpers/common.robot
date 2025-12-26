@@ -13,7 +13,7 @@ ${APP_ACTIVITY}         com.swaglabsmobileapp.MainActivity
 ${APP_PATH}             C:/Users/97798/Desktop/mobile/apk/Android.SauceLabs.Mobile.Sample.app.2.7.1.apk
 
 # IOS specs
-${IOS_URL}    https://kebalkhadka_Q2Zwht:eKAq5Jyx4qcKQi6SExdS@hub-cloud.browserstack.com/wd/hub
+${IOS_URL}    %{IOS_URL}
 ${IOS_DEVICE}    iphone 13
 ${IOS_OS_VERSION}     16
 ${IOS_AUTOMATION}    XCUITest
