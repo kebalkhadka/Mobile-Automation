@@ -13,34 +13,32 @@ ${APP_ACTIVITY}         com.swaglabsmobileapp.MainActivity
 ${APP_PATH}             C:/Users/97798/Desktop/mobile/apk/Android.SauceLabs.Mobile.Sample.app.2.7.1.apk
 
 # IOS specs
-${IOS_device}    iphone 7
-${IOS_automation}    XCUITest
-${IOS_APP}        D:\mobile\apk\iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa
-${BUNDLE_ID}      com.swaglabsmobileapp
+${IOS_URL}    https://kebalkhadka_Q2Zwht:eKAq5Jyx4qcKQi6SExdS@hub-cloud.browserstack.com/wd/hub
+${IOS_DEVICE}    iphone 13
+${IOS_OS_VERSION}     16
+${IOS_AUTOMATION}    XCUITest
+${IOS_APP}        bs://5633d6b6a9444f5902eed1a4d07fdf7ce8e9097b
 
 
 *** Keywords ***
 Open SwagLabs App
     IF    '${PLATFORM_NAME}' == 'Android'
-    Open Application    ${REMOTE_URL}
-    ...    platformName=${PLATFORM_NAME}
-    ...    deviceName=${DEVICE_NAME}
-    ...    automationName=${AUTOMATION_NAME}
-    ...    appPackage=${APP_PACKAGE}
-    ...    appActivity=${APP_ACTIVITY}
-    ...    app=${APP_PATH}
-    ...    appWaitActivity=com.swaglabsmobileapp.*
-    ...    appWaitDuration=30000
-    ...    noReset=true
-    ...    fullReset=false
-    
-    ELSE IF    '${PLATFORM_NAME}' == 'ios'
         Open Application    ${REMOTE_URL}
-        ...    platformName=iOS
-        ...    deviceName=${IOS_DEVICE}
-        ...    automationName=${IOS_AUTOMATION}
-        ...    app=${IOS_APP}
-        ...    bundleId=${BUNDLE_ID}
+        ...    platformName=Android
+        ...    deviceName=${DEVICE_NAME}
+        ...    automationName=${AUTOMATION_NAME}
+        ...    appPackage=${APP_PACKAGE}
+        ...    appActivity=${APP_ACTIVITY}
+        ...    app=${APP_PATH}
         ...    noReset=true
 
+    ELSE IF    '${PLATFORM_NAME}' == 'ios'
+        Open Application    ${IOS_URL}
+        ...    platformName=iOS
+        ...    deviceName=${IOS_DEVICE}
+        ...    os_version=${IOS_OS_VERSION}
+        ...    automationName=${IOS_AUTOMATION}
+        ...    app=${IOS_APP}
+        ...    name=Robot iOS Test
     END
+
